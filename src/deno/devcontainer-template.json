@@ -1,27 +1,24 @@
 {
-    "id": "deno",
-    "version": "0.1.0",
-    "name": "Deno",
-    "description": "Develop Deno based applications. Includes Deno, Node.js, npm, etc.",
-    "documentationURL": "https://github.com/myty/devcontainer-templates/tree/main/src/deno",
-    "publisher": "Michael Tyson (@myty)",
-    "licenseURL": "https://github.com/myty/devcontainer-templates/blob/main/LICENSE",
+	"id": "deno",
+	"version": "0.1.0",
+	"name": "Deno",
+	"description": "Develop Deno based applications. Includes Deno, Node.js, npm, etc.",
+	"documentationURL": "https://github.com/myty/devcontainer-templates/tree/main/src/deno",
+	"publisher": "Michael Tyson (@myty)",
+	"licenseURL": "https://github.com/myty/devcontainer-templates/blob/main/LICENSE",
 	"options": {
-        "imageVariant": {
-            "type": "string",
-            "description": "Deno version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
-            "proposals": [
-				"1.40-bookworm",
-                "1.39-bookworm",
-				"1.40-bullseye",
-                "1.39-bullseye",
-				"1.40-buster",
-                "1.39-buster"
-            ],
-            "default": "1.40-bullseye"
-        }
-    },
-    "platforms": [
-        "Deno"
-    ]
+		"denoVersion": {
+			"type": "string",
+			"description": "Deno version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
+			"proposals": [
+				"1.40.2",
+				"1.39.4",
+				"1.38.5"
+			],
+			"default": "1.40.2"
+		}
+	},
+	"platforms": [
+		"Deno"
+	]
 }
