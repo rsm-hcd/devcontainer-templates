@@ -3,9 +3,9 @@
 	"version": "0.1.0",
 	"name": "Deno",
 	"description": "Develop Deno based applications. Includes Deno, Node.js, npm, etc.",
-	"documentationURL": "https://github.com/myty/devcontainer-templates/tree/main/src/deno",
-	"publisher": "Michael Tyson (@myty)",
-	"licenseURL": "https://github.com/myty/devcontainer-templates/blob/main/LICENSE",
+	"documentationURL": "https://github.com/rsm-hcd/devcontainer-templates/tree/main/src/deno",
+	"publisher": "RSM - Human-Centered Engineering (@rsm-hcd)",
+	"licenseURL": "https://github.com/rsm-hcd/devcontainer-templates/blob/main/LICENSE",
 	"options": {
 		"denoVersion": {
 			"type": "string",
