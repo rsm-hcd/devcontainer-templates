@@ -1,7 +1,7 @@
 
-# Deno (deno-postgres)
+# Deno & PostgreSQL (deno-postgres)
 
-Develop Deno+Postgres based applications. Includes Deno, Postgres, Node.js, npm, etc.
+Develop Deno+Postgres based applications. Includes Deno, PostgreSQL, Node.js, npm, etc.
 
 ## Options
 
