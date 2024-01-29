@@ -6,7 +6,7 @@ source test-utils.sh
 check "distro" lsb_release -c
 
 # Image specific tests
-check "deno" deno test
+check "deno-postgres" deno test -A
 
 # Report result
 reportResults

@@ -1,0 +1,35 @@
+{
+	"id": "deno-postgres",
+	"version": "0.1.0",
+	"name": "Deno",
+	"description": "Develop Deno+Postgres based applications. Includes Deno, Postgres, Node.js, npm, etc.",
+	"documentationURL": "https://github.com/rsm-hcd/devcontainer-templates/tree/main/src/deno",
+	"publisher": "RSM - Human-Centered Engineering (@rsm-hcd)",
+	"licenseURL": "https://github.com/rsm-hcd/devcontainer-templates/blob/main/LICENSE",
+	"options": {
+		"denoVersion": {
+			"type": "string",
+			"description": "Deno version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
+			"proposals": [
+				"1.40.2",
+				"1.39.4",
+				"1.38.5"
+			],
+			"default": "1.40.2"
+		},
+		"postgresVersion": {
+			"type": "string",
+			"description": "Postgres version:",
+			"proposals": [
+				"16",
+				"15",
+				"14"
+			],
+			"default": "16"
+		}
+	},
+	"platforms": [
+		"Deno",
+		"PostgreSQL"
+	]
+}
