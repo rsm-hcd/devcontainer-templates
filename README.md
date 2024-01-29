@@ -1,4 +1,6 @@
-# Development Container Templates
+# RSM Dev Container Templates
+
+This repo is based on the [Dev Container Template Starter](https://github.com/devcontainers/template-starter) and the [Dev Container Template specification](https://containers.dev/implementors/templates-distribution/#distribution) and will be updated with templates that are applicable to the work we do as a team.
 
 <table style="width: 100%; border-style: none;"><tr>
 <td style="width: 140px; text-align: center;"><a href="https://github.com/devcontainers"><img width="128px" src="https://raw.githubusercontent.com/microsoft/fluentui-system-icons/78c9587b995299d5bfc007a0077773556ecb0994/assets/Cube/SVG/ic_fluent_cube_32_filled.svg" alt="devcontainers organization logo"/></a></td>
@@ -16,7 +18,7 @@ This repository contains a set of **Dev Container Templates** which are source f
 
 - [`src`](src) - A collection of subfolders, each declaring a template. Each subfolder contains at least a
     `devcontainer-template.json` and a [devcontainer.json](https://containers.dev/implementors/json_reference/).
-- [`test`](test) - Mirroring `src`, a folder-per-template with at least a `test.sh` script. These tests are executed by the [CI](https://github.com/myty/devcontainer-templates/blob/main/.github/workflows/test-pr.yaml).
+- [`test`](test) - Mirroring `src`, a folder-per-template with at least a `test.sh` script. These tests are executed by the [CI](https://github.com/rsm-hcd/devcontainer-templates/blob/main/.github/workflows/test-pr.yaml).
 
 ## Contributions
 
@@ -33,7 +35,7 @@ This repository will accept improvement and bug fix contributions related to the
 
 ## Feedback
 
-Issues related to these templates can be reported in [an issue](https://github.com/myty/devcontainer-templates/issues) in this repository.
+Issues related to these templates can be reported in [an issue](https://github.com/rsm-hcd/devcontainer-templates/issues) in this repository.
 
 ## License
 
