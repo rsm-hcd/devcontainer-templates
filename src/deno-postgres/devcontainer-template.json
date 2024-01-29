@@ -29,6 +29,7 @@
 		}
 	},
 	"platforms": [
-		"Deno"
+		"Deno",
+		"PostgreSQL"
 	]
 }
