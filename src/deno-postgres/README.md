@@ -7,7 +7,7 @@ Develop Deno+Postgres based applications. Includes Deno, PostgreSQL, Node.js, np
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| denoVersion | Deno version (use -bookworm, -bullseye variants on local arm64/Apple Silicon): | string | 1.40.2 |
+| denoVersion | Deno version: | string | 1.40.2 |
 | postgresVersion | Postgres version: | string | 16 |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
