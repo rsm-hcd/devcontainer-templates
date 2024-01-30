@@ -9,7 +9,7 @@
 	"options": {
 		"denoVersion": {
 			"type": "string",
-			"description": "Deno version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
+			"description": "Deno version:",
 			"proposals": [
 				"1.40.2",
 				"1.39.4",
