@@ -5,18 +5,18 @@ using Microsoft.Data.SqlClient;
 
 var databaseNames = "";
 
-SqlConnectionStringBuilder connectionBuilder = new {
+var connectionBuilder = new SqlConnectionStringBuilder() {
     DataSource = "localhost,1433",
     UserID = "sa",
     Password = "P@ssw0rd"
 };
 
-using (SqlConnection containerConnection = new(connectionBuilder.ConnectionString)) {
+using (var containerConnection = new SqlConnection(connectionBuilder.ConnectionString)) {
     containerConnection.Open();
     var tsql = "SELECT [NAME] AS DBNAME FROM SYS.DATABASES";
 
-    using (SqlCommand tsqlCommand = new(tsql, containerConnection)) {
-        using (SqlDataReader reader = tsqlCommand.ExecuteReader()) {
+    using (var tsqlCommand = new SqlCommand(tsql, containerConnection)) {
+        using (var reader = tsqlCommand.ExecuteReader()) {
             int rowcount = 0;
             while (reader.Read()) {
                 if (rowcount == 0) {
