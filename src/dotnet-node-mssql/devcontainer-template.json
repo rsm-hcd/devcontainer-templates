@@ -1,8 +1,8 @@
 {
 	"id": "dotnet-node-mssql",
 	"version": "0.1.0",
-	"name": ".NET (C#), Node.js & MS SQL",
-	"description": "Develop fullstack applications with .NET(backend) and TypeScript(frontend) based applications. Includes .NET (C#), Node.js, MS SQL, nvm, npm, etc.",
+	"name": ".NET (C#), Node.js (TypeScript) & MS SQL",
+	"description": "Develop fullstack applications with .NET(backend) and TypeScript(frontend) based applications. Includes .NET (C#), Node.js, TypeScript, MS SQL, nvm, npm, etc.",
 	"documentationURL": "https://github.com/rsm-hcd/devcontainer-templates/tree/main/src/dotnet-node-mssql",
 	"publisher": "RSM - Human-Centered Engineering (@rsm-hcd)",
 	"licenseURL": "https://github.com/rsm-hcd/devcontainer-templates/blob/main/LICENSE",

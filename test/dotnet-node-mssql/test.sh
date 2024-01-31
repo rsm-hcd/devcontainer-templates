@@ -15,6 +15,7 @@ check "nuget" dotnet restore
 check "msbuild" dotnet msbuild
 rm -rf obj bin
 check "nvm-node" node --version
+check "typescript" tsc --version
 
 # Report result
 reportResults
