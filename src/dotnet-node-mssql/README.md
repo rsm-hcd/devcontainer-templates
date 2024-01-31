@@ -1,40 +1,86 @@
 
-# Deno & PostgreSQL (deno-postgres)
+# .NET (C#), Node.js (TypeScript) & MS SQL (dotnet-node-mssql)
 
-Develop Deno+Postgres based applications. Includes Deno, PostgreSQL, Node.js, npm, etc.
+Develop fullstack applications with .NET(backend) and TypeScript(frontend) based applications. Includes .NET (C#), Node.js, TypeScript, MS SQL, nvm, npm, etc.
 
 ## Options
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| denoVersion | Deno version: | string | 1.40.2 |
-| postgresVersion | Postgres version: | string | 16 |
+| imageVariant | .NET version: | string | 8.0-bookworm |
+| nodeVersion | Node.js version: | string | --lts |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
-* **Image**: mcr.microsoft.com/devcontainers/typescript-node ([source](https://github.com/devcontainers/images/tree/main/src/typescript-node))
-* **Applies devcontainer.json contents from image**: Yes ([source](https://github.com/devcontainers/images/blob/main/src/typescript-node/.devcontainer/devcontainer.json))
+* **Image**: mcr.microsoft.com/devcontainers/dotnet ([source](https://github.com/devcontainers/images/tree/main/src/dotnet))
+* **Applies devcontainer.json contents from image**: Yes ([source](https://github.com/devcontainers/images/blob/main/src/dotnet/.devcontainer/devcontainer.json))
 
 ## Using this template
 
-This definition creates two containers, one for Deno and one for PostgreSQL. You will be connected to the Deno container, and from within that container the PostgreSQL container will be available on **`localhost`** port 5432. The default database is named `postgres` with a user of `postgres` whose password is `postgres`, and if desired this may be changed in `docker-compose.yml`. Data is stored in a volume named `postgres-data`.
+This template creates two containers, one for C# (.NET) and one for Microsoft SQL Server. You will be connected to the Ubuntu or Debian container, and from within that container the MS SQL container will be available on **`localhost`** port 1433. The .NET container also includes supporting scripts in the `.devcontainer/mssql` folder used to configure the database.
 
-While the definition itself works unmodified, it uses `mcr.microsoft.com/devcontainers/typescript-node` as a base image which includes `git`, `eslint`, `zsh`, [Oh My Zsh!](https://ohmyz.sh/), a non-root `vscode` user with `sudo` access, and a set of common dependencies for development.
+The MS SQL container is deployed from the latest developer edition of Microsoft SQL 2019. The database(s) are made available directly in the Codespace/VS Code through the MSSQL extension with a connection labeled "mssql-container".  The default `sa` user password is set to `P@ssw0rd`. The default SQL port is mapped to port `1433` in `.devcontainer/docker-compose.yml`.
 
-You also can connect to PostgreSQL from an external tool when connected to the Dev Contaner from a local tool  by updating `.devcontainer/devcontainer.json` as follows:
+#### Changing the sa password
 
-```json
-"forwardPorts": [ "5432" ]
-```
+To change the `sa` user password, change the value in `.devcontainer/docker-compose.yml` and `.devcontainer/devcontainer.json`.
+
+#### Database deployment
+
+By default, a blank user database is created titled "ApplicationDB".  To add additional database objects or data through T-SQL during Codespace configuration, edit the file `.devcontainer/mssql/setup.sql` or place additional `.sql` files in the `.devcontainer/mssql/` folder. *Large numbers of scripts may take a few minutes following container creation to complete, even when the SQL server is available the database(s) may not be available yet.*
+
+Alternatively, .dacpac files placed in the `./bin/Debug` folder will be published as databases in the container during Codespace configuration. [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) is used to deploy a database schema from a data-tier application file (dacpac), allowing you to bring your application's database structures into the dev container easily. *The publish process may take a few minutes following container creation to complete, even when the server is available the database(s) may not be available yet.*
 
 ### Adding another service
 
-You can add other services to your `docker-compose.yml` file [as described in Docker's documentaiton](https://docs.docker.com/compose/compose-file/#service-configuration-reference). However, if you want anything running in this service to be available in the container on localhost, or want to forward the service locally, be sure to add this line to the service config:
+You can add other services to your `.devcontainer/docker-compose.yml` file [as described in Docker's documentation](https://docs.docker.com/compose/compose-file/#service-configuration-reference). However, if you want anything running in this service to be available in the container on localhost, or want to forward the service locally, be sure to add this line to the service config:
 
 ```yaml
 # Runs the service on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
 network_mode: service:db
 ```
+
+### Enabling HTTPS in ASP.NET using your own dev certificate
+
+To enable HTTPS in ASP.NET, you can export a copy of your local dev certificate.
+
+1. Export it using the following command:
+
+    **Windows PowerShell**
+
+    ```powershell
+    dotnet dev-certs https --trust; dotnet dev-certs https -ep "$env:USERPROFILE/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
+    ```
+
+    **macOS/Linux terminal**
+
+    ```powershell
+    dotnet dev-certs https --trust; dotnet dev-certs https -ep "${HOME}/.aspnet/https/aspnetapp.pfx" -p "SecurePwdGoesHere"
+    ```
+
+2. Add the following in to `.devcontainer/devcontainer.json`:
+
+    ```json
+    "remoteEnv": {
+        "ASPNETCORE_Kestrel__Certificates__Default__Password": "SecurePwdGoesHere",
+        "ASPNETCORE_Kestrel__Certificates__Default__Path": "${containerEnv:HOME}/.aspnet/https/aspnetapp.pfx",
+    },
+    "portsAttributs": {
+        "5001": {
+            "protocol": "https"
+        }
+    }
+    ```
+    ...where `5001` is the HTTPS port.
+
+3. Finally, make the certificate available in the container as follows:
+
+    1. Start the Dev Container
+    2. Copy `.aspnet/https/aspnetapp.pfx` from your local home (`/home/yournamehere`) or user profile (`C:\Users\yournamehere`) folder into your Dev Container. For example, you can drag the file into the root of the File Explorer when using VS Code.
+    3. Move the file to the correct place in the container. For example, in VS Code start a terminal and run:
+        ```bash
+        mkdir -p $HOME/.aspnet/https && mv aspnetapp.pfx $HOME/.aspnet/https
+        ```
 
 ### Using the forwardPorts property
 
@@ -49,4 +95,4 @@ The `ports` property in `docker-compose.yml` [publishes](https://docs.docker.com
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/rsm-hcd/devcontainer-templates/blob/main/src/deno-postgres/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/rsm-hcd/devcontainer-templates/blob/main/src/dotnet-node-mssql/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
