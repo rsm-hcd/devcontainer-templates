@@ -14,7 +14,7 @@ jobs:
           filters: |
             deno: ./**/deno/**
             deno-postgres: ./**/deno-postgres/**
-            dotnet-node-mssql: ./**/ddotnet-node-mssql/**
+            dotnet-node-mssql: ./**/dotnet-node-mssql/**
 
   test:
     needs: [detect-changes]
