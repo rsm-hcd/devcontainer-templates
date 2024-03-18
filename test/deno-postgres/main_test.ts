@@ -1,4 +1,4 @@
-import { Pool } from "https://deno.land/x/postgres@v0.17.0/mod.ts";
+import { Pool } from "https://deno.land/x/postgres@v0.19.3/mod.ts";
 
 Deno.test("database", async () => {
   // Get the connection string from the environment variable "DATABASE_URL"
