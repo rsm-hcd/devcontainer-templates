@@ -7,7 +7,7 @@ Develop Deno based applications. Includes Deno, Node.js, npm, etc.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| denoVersion | Deno version: | string | 1.46.3 |
+| denoVersion | Deno version: | string | 2.0.0 |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 

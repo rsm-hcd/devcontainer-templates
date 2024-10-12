@@ -1,6 +1,6 @@
 {
 	"id": "deno",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"name": "Deno",
 	"description": "Develop Deno based applications. Includes Deno, Node.js, npm, etc.",
 	"documentationURL": "https://github.com/rsm-hcd/devcontainer-templates/tree/main/src/deno",
@@ -11,12 +11,13 @@
 			"type": "string",
 			"description": "Deno version:",
 			"proposals": [
+				"2.0.0",
 				"1.46.3",
 				"1.45.5",
 				"1.44.4",
 				"1.43.6"
 			],
-			"default": "1.46.3"
+			"default": "2.0.0"
 		}
 	},
 	"platforms": [
