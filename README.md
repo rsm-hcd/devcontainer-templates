@@ -20,13 +20,21 @@ This repository contains a set of **Dev Container Templates** which are source f
     `devcontainer-template.json` and a [devcontainer.json](https://containers.dev/implementors/json_reference/).
 - [`test`](test) - Mirroring `src`, a folder-per-template with at least a `test.sh` script. These tests are executed by the [CI](https://github.com/rsm-hcd/devcontainer-templates/blob/main/.github/workflows/test-pr.yaml).
 
+## Getting Started
+
+Opening this repository in a [Dev Container](https://containers.dev/implementors/dev_container/) will allow you to run the tests and make changes to the templates. You can also use the [Dev Container CLI](https://containers.dev/implementors/cli/) to create a new project using one of these templates.
+
+### Running Tests
+
+The simplest way to run the tests is to open the repository within a Dev Contatiner inside VS Code: [Dev Containers extension for Visual Studio Code](https://code.visualstudio.com/docs/remote/devcontainer-overview).
+
+For example, to run the tests for the `deno` template, you can open the repository in a Dev Container and then run:
+
+```sh
+npm run test deno
+```
+
 ## Contributions
-
-### Creating your own collection of templates
-
-The [Dev Container Template specification](https://containers.dev/implementors/templates-distribution/#distribution) outlines a pattern for community members and organizations to self-author Templates in repositories they control.
-
-A starter repository [devcontainers/template-starter](https://github.com/devcontainers/template-starter) and [GitHub Action](https://github.com/devcontainers/action) are available to help bootstrap self-authored Templates.
 
 ### Contributing to this repository
 

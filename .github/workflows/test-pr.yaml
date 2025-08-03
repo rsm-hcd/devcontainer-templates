@@ -8,13 +8,13 @@ jobs:
     outputs:
       templates: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
-            deno: ./**/deno/**
-            deno-postgres: ./**/deno-postgres/**
-            dotnet-node-mssql: ./**/dotnet-node-mssql/**
+            deno: ./**/deno
+            deno-postgres: ./**/deno-postgres
+            dotnet-node-mssql: ./**/dotnet-node-mssql
 
   test:
     needs: [detect-changes]
@@ -24,7 +24,7 @@ jobs:
       matrix:
         templates: ${{ fromJSON(needs.detect-changes.outputs.templates) }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       - name: Smoke test for '${{ matrix.templates }}'
         id: smoke_test
