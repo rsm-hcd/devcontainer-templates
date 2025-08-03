@@ -7,7 +7,7 @@ Develop fullstack applications with .NET(backend) and TypeScript(frontend) based
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | .NET version: | string | 8.0-bookworm |
+| imageVariant | .NET version: | string | 9.0-bookworm |
 | nodeVersion | Node.js version: | string | --lts |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.

@@ -11,32 +11,29 @@
 			"type": "string",
 			"description": ".NET version:",
 			"proposals": [
+				"10.0-preview",
+				"9.0",
 				"8.0",
-				"7.0",
-				"6.0",
+				"10.0-preview-trixie",
+				"9.0-bookworm",
 				"8.0-bookworm",
-				"7.0-bookworm",
-				"6.0-bookworm",
-				"7.0-bullseye",
-				"6.0-bullseye",
-				"8.0-jammy",
-				"7.0-jammy",
-				"6.0-jammy",
-				"6.0-focal"
+				"10.0-preview-noble",
+				"9.0-noble",
+				"8.0-noble",
+				"8.0-jammy"
 			],
-			"default": "8.0-bookworm"
+			"default": "9.0-bookworm"
 		},
 		"nodeVersion": {
 			"type": "string",
-			"description": "Node.js version:",
+            "description": "Node.js version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
 			"proposals": [
-				"--lts",
-				"21",
-				"20",
-				"18",
-				"16"
+                "--lts",
+                "22",
+                "20",
+                "18"
 			],
-			"default": "--lts"
+            "default": "--lts"
 		}
 	},
 	"platforms": [
@@ -44,6 +41,7 @@
 		".NET Core",
 		"C#",
 		"Microsoft SQL",
-		"Node.js"
+		"Node.js",
+        "TypeScript"
 	]
 }
