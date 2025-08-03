@@ -11,13 +11,10 @@
 			"type": "string",
 			"description": "Deno version:",
 			"proposals": [
-				"2.0.0",
-				"1.46.3",
-				"1.45.5",
-				"1.44.4",
-				"1.43.6"
+				"2.4.3",
+				"1.46.3"
 			],
-			"default": "2.0.0"
+			"default": "2.4.3"
 		}
 	},
 	"platforms": [
